@@ -1,0 +1,52 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/profile.css' %}" type="text/css">
+{% endblock %}
+
+{% block title %}
+    profile me
+{% endblock %}
+
+{% block body %}
+    <h1>user info</h1>
+
+    {% if user.is_authenticated  %}
+        <div>
+            {% if user.profile.avatar %}
+                <img src="{{  user.profile.avatar.url }}" alt="">
+            {% else %}
+                <h6>No avatar</h6>
+            {% endif %}
+            <p>Username: {{ user.username }}</p>
+            <p>First name: {{ user.first_name }}</p>
+            <p>Last name: {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Upload avatar</button>
+        </form>
+
+
+        <form action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+
+            <button type="submit">выйти</button>
+        </form>
+    {% else %}
+    <h2>Anonym user</h2>
+    <form action="{% url 'accounts:login' %}" method="get">
+        {% csrf_token %}
+
+        <button type="submit">войти</button>
+    </form>
+    {% endif %}
+
+
+
+{% endblock %}
