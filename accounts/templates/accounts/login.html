@@ -1,10 +1,10 @@
-{% extends 'accounts/base.html' %}
+{% extends 'myunity/_base.html' %}
 
 {% block title %}
 Login
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

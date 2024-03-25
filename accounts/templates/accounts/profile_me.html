@@ -1,16 +1,13 @@
-{% extends 'accounts/base.html' %}
+{% extends 'myunity/_base.html' %}
 
 
-{% block head %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'accounts/profile.css' %}" type="text/css">
-{% endblock %}
+
 
 {% block title %}
     profile me
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>user info</h1>
 
     {% if user.is_authenticated  %}
@@ -24,26 +21,27 @@
             <p>First name: {{ user.first_name }}</p>
             <p>Last name: {{ user.last_name }}</p>
             <p>Email: {{ user.email }}</p>
+            <p>Position: {{ user.profile.position }}</p>
         </div>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button type="submit">Upload avatar</button>
+            <button type="submit" class="btn btn-success">Upload avatar</button>
         </form>
 
 
         <form action="{% url 'accounts:logout' %}" method="post">
             {% csrf_token %}
 
-            <button type="submit">выйти</button>
+            <button type="submit" class="btn btn-dark">выйти</button>
         </form>
     {% else %}
     <h2>Anonym user</h2>
     <form action="{% url 'accounts:login' %}" method="get">
         {% csrf_token %}
 
-        <button type="submit">войти</button>
+        <button type="submit" class="btn btn-success">войти</button>
     </form>
     {% endif %}
 
