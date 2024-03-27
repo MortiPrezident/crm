@@ -17,3 +17,6 @@ class Contracts(models.Model):
     start_data = models.DateField()
     end_data = models.DateField()
     file = models.FileField(upload_to=file_path)
+
+    def __str__(self):
+        return f'Contract(pk={self.pk}, name={self.name!r})'
