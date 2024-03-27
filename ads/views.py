@@ -30,7 +30,7 @@ class AdsCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'ads/ads-create.html'
     permission_required = 'ads.create_ads'
     success_url = reverse_lazy('ads:ads')
-    fields = 'name', 'budget', 'product',
+    fields = 'name', 'budget', 'product', 'promotion_chanel'
 
 
 class AdsStatisticListView(PermissionRequiredMixin, LoginRequiredMixin, ListView):
@@ -44,7 +44,7 @@ class AdsUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Ads
     permission_required = 'ads.change_ads'
     template_name = 'ads/ads-edit.html'
-    fields = 'name', 'budget', 'product', 'leads_count', 'customers_count', 'profit'
+    fields = 'name', 'budget', 'product', 'leads_count', 'customers_count', 'profit', 'promotion_chanel'
 
     def get_success_url(self):
         return reverse_lazy('ads:ads_detail', kwargs={'pk': self.object.pk})
