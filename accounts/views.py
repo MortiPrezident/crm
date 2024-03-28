@@ -9,11 +9,11 @@ class ProfileView(View):
 
     def get(self, request: HttpRequest):
         form = UploadForm()
-        return render(request, 'accounts/profile_me.html', {'form': form})
+        return render(request, "accounts/profile_me.html", {"form": form})
 
     def post(self, request: HttpRequest):
-        profile, created = Profile.objects.get_or_create(user=request.user)
+        profile, _ = Profile.objects.get_or_create(user=request.user)
         form = UploadForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect("/")

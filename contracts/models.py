@@ -2,9 +2,9 @@ from django.db import models
 from products.models import Product
 
 
-def file_path(elem: 'Contracts', filename: str) -> str:
+def file_path(elem: "Contracts", filename: str) -> str:
 
-    return f'uploads/contracts_{elem.pk}/{filename}'
+    return f"uploads/contracts_{elem.pk}/{filename}"
 
 
 class Contracts(models.Model):
@@ -19,4 +19,4 @@ class Contracts(models.Model):
     file = models.FileField(upload_to=file_path)
 
     def __str__(self):
-        return f'Contract(pk={self.pk}, name={self.name!r})'
+        return f"Contract(pk={self.pk}, name={self.name!r})"

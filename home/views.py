@@ -12,12 +12,10 @@ def home_view(request):
     leads_count = Leads.objects.all().count()
 
     context = {
-        'customers_count': customers_count,
-        'products_count': products_count,
-        'advertisements_count': advertisements_count,
-        'leads_count': leads_count,
-
+        "customers_count": customers_count,
+        "products_count": products_count,
+        "advertisements_count": advertisements_count,
+        "leads_count": leads_count,
     }
 
-    return render(request, 'home/index.html', context=context)
-
+    return render(request, "home/index.html", context=context)

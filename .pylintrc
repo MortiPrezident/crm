@@ -1,5 +1,5 @@
 [MASTER]
-ignore-patterns=.*/migrations/*,.*/settings.py,.*/manage.py,.*/apps.py
+ignore-paths=.*/migrations/*,.*/settings.py,.*/manage.py,.*/apps.py
 
 [MESSAGES CONTROL]
 disable=raw-checker-failed,
@@ -13,4 +13,6 @@ disable=raw-checker-failed,
         use-implicit-booleaness-not-comparison-to-zero,
         use-symbolic-message-instead,
         missing-module-docstring,
-        too-many-ancestors
+        too-many-ancestors,
+        missing-class-docstring,
+        missing-function-docstring,

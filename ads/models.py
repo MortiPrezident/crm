@@ -12,7 +12,7 @@ class Ads(models.Model):
     leads_count = models.IntegerField(default=0)
     customers_count = models.IntegerField(default=0)
     profit = models.DecimalField(default=0, max_digits=8, decimal_places=2)
-    promotion_chanel = models.CharField(max_length=40, default='internet')
+    promotion_chanel = models.CharField(max_length=40, default="internet")
 
     def __str__(self):
-        return f'Ads(pk={self.pk}, name={self.name!r})'
+        return f"Ads(pk={self.pk}, name={self.name!r})"

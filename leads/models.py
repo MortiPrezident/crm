@@ -14,4 +14,4 @@ class Leads(models.Model):
     ad = models.ForeignKey(Ads, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f'Leads(pk={self.pk}, name={self.first_name!r}{self.last_name})'
+        return f"Leads(pk={self.pk}, name={self.first_name!r}{self.last_name})"
