@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from customers.models import Customer
 from products.models import Product
@@ -5,6 +6,7 @@ from ads.models import Ads
 from leads.models import Leads
 
 
+@login_required
 def home_view(request):
     customers_count = Customer.objects.all().count()
     products_count = Product.objects.all().count()
